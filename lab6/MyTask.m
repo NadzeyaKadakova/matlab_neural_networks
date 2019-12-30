@@ -1,0 +1,11 @@
+Helix = readtable('Helix.xlsx');
+% Toric = readtable('Toric.xlsx');
+Helix = table2cell(Helix);
+Helix = cell2mat(Helix);
+% Toric = table2cell(Toric);
+% Toric = cell2mat(Toric);
+Helix = Helix';
+% Toric = Toric';
+somForHelix = selforgmap([10 10]);
+somForHelix.trainParam.epochs=10000;
+somForHelix = train(somForHelix,Helix);
